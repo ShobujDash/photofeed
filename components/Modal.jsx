@@ -1,21 +1,19 @@
+
 "use client"
-import React from 'react'
-import { createPortal } from 'react-dom'
-import { useEffect, useRef } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation"; // Changed from next/navigation
+import { useEffect, useRef } from "react";
 
-import Image from 'next/image'
-
+import Image from "next/image";
 
 const Modal = ({ children }) => {
-  const modalRef = useRef(null)
+  const modalRef = useRef(null);
   const router = useRouter();
 
   useEffect(() => {
     if (!modalRef.current?.open) {
       modalRef.current?.showModal();
     }
-  },[])
+  }, []);
 
   function onHide() {
     router.back();
@@ -33,9 +31,8 @@ const Modal = ({ children }) => {
         </span>
         {children}
       </dialog>
-      , document.getElementById("modal-root-content")
     </div>
   );
-}
+};
 
-export default Modal
+export default Modal;
